@@ -1,0 +1,299 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio | J.Neeharika</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    section {
+      scroll-margin-top: 100px;
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    /* Ambient glowing circles adjusted for a networking/cyber theme */
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.25;
+      z-index: -1;
+      animation: floatGlow 8s ease-in-out infinite alternate;
+    }
+
+    body::before {
+      top: -40px;
+      left: -40px;
+      background: rgba(0, 242, 254, 0.4); /* Neon Cyan */
+    }
+
+    body::after {
+      right: -40px;
+      bottom: -40px;
+      background: rgba(79, 172, 254, 0.4); /* Electric Blue */
+      animation-duration: 10s;
+    }
+
+    @keyframes floatGlow {
+      from {
+        transform: translate(0, 0) scale(1);
+      }
+      to {
+        transform: translate(30px, 20px) scale(1.1);
+      }
+    }
+
+    #home {
+      text-align: center;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+    #home h1 {
+      font-size: 3rem;
+      margin-bottom: 5px;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #00f2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    #home p {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+
+    #skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    #skills li {
+      background: rgba(255, 255, 255, 0.07);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    #skills li:hover {
+      transform: translateY(-4px);
+      background: rgba(0, 242, 254, 0.15);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 8px 16px rgba(0, 242, 254, 0.2);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(0, 242, 254, 0.3);
+      box-shadow: 0 12px 24px rgba(0, 242, 254, 0.15);
+    }
+
+    /* Clean Modern Buttons */
+    .btn {
+      display: inline-block;
+      cursor: pointer;
+      font-weight: 600;
+      background: #00f2fe;
+      color: #0d1b2a;
+      padding: 10px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      background: #ffffff;
+      color: #0d1b2a;
+      box-shadow: 0 8px 20px rgba(0, 242, 254, 0.3);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #00f2fe;
+      box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Deep Premium Nav Bar with Blur */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(13, 27, 42, 0.8);
+      backdrop-filter: blur(12px);
+      padding: 16px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00f2fe;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 18px;
+      }
+      #home h1 {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<!-- Deep Cyber/Cloud Infrastructure Background Gradient -->
+<body style="background: linear-gradient(135deg, #0f172a 0%, #0d1b2a 50%, #1b263b 100%);
+ font-family: 'Poppins', sans-serif; color: #ffffff; position: relative; overflow-x: hidden; margin: 0;">
+
+  <!-- 1. Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 2. Hero -->
+  <section id="home">
+    <h1>J.Neeharika</h1>
+    <p>III B.Tech IT-A | ANITS</p>
+    <a href="#contact" class="btn">Get In Touch</a>
+  </section>
+
+  <!-- 3. About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hello! I am Neeharika, a passionate student currently pursuing my <strong>Bachelor of Technology</strong>
+      in <strong>Information Technology</strong> at ANITS.
+      Ever since I wrote my first line of HTML, I have been captivated by the art of turning complex logical problems
+      into simple, beautiful, and intuitive user experiences.
+    </p>
+    <p>
+      My primary interest lies in Networking. Beyond my main coursework, I actively engage with
+      the tech community through open-source collaborations, coding hackathons, and exploring modern UI/UX architecture and startups Innovation.
+    </p>
+  </section>
+
+  <!-- 4. Skills -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>Python</li>
+      <li>Network Security</li>
+      <li>Cloud Computing</li>
+      <li>Git & GitHub</li>
+      <li>UI/UX Designing</li>
+    </ul>
+  </section>
+
+  <!-- 5. Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Fitness Tracker and Diet Planner</h3>
+      <p>
+        An all-in-one application that helps users monitor their physical activities while planning healthy meals. 
+        It tracks fitness progress, calorie intake, and nutrition to support a healthier lifestyle and achieve wellness goals.
+      </p>
+      <a href="#" class="btn" style="margin-top: 12px;">View Project</a>
+    </div>
+  </section>
+
+  <!-- 6. Contact Form -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+      
+      <button type="submit" class="btn" style="align-self: flex-start; width: auto;">Send Message</button>
+    </form>
+  </section>
+
+  <!-- 7. Footer -->
+  <footer>
+    <p>&copy; 2026 J.Neeharika. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
