@@ -1,0 +1,226 @@
+/* Base & Reset Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a 0%, #0d1b2a 50%, #1b263b 100%);
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+section {
+  scroll-margin-top: 100px;
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+/* Ambient Glowing Background Decoration */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.25;
+  z-index: -1;
+  animation: floatGlow 8s ease-in-out infinite alternate;
+}
+
+body::before {
+  top: -40px;
+  left: -40px;
+  background: rgba(0, 242, 254, 0.4); /* Neon Cyan */
+}
+
+body::after {
+  right: -40px;
+  bottom: -40px;
+  background: rgba(79, 172, 254, 0.4); /* Electric Blue */
+  animation-duration: 10s;
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(30px, 20px) scale(1.1);
+  }
+}
+
+/* Navigation Bar Styling */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(13, 27, 42, 0.8);
+  backdrop-filter: blur(12px);
+  padding: 16px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #00f2fe;
+}
+
+/* Hero Section */
+#home {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 5px;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #00f2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#home p {
+  font-size: 1.2rem;
+  opacity: 0.85;
+  margin-bottom: 25px;
+}
+
+/* Skills Section Tags */
+#skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+#skills li {
+  background: rgba(255, 255, 255, 0.07);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+#skills li:hover {
+  transform: translateY(-4px);
+  background: rgba(0, 242, 254, 0.15);
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 8px 16px rgba(0, 242, 254, 0.2);
+}
+
+/* Cards (Projects) Layout */
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: 0 12px 24px rgba(0, 242, 254, 0.15);
+}
+
+.card-btn {
+  margin-top: 12px;
+}
+
+/* Buttons UI Components */
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 600;
+  background: #00f2fe;
+  color: #0d1b2a;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  color: #0d1b2a;
+  box-shadow: 0 8px 20px rgba(0, 242, 254, 0.3);
+}
+
+/* Forms UI Components */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #00f2fe;
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-submit-btn {
+  align-self: flex-start;
+  width: auto;
+}
+
+/* Footer Style */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 18px;
+  }
+  #home h1 {
+    font-size: 2.4rem;
+  }
+}
