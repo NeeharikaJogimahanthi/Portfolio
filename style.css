@@ -4,8 +4,8 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, #0f172a 0%, #0d1b2a 50%, #1b263b 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
+  color: #0f172a; /* Dark slate text for high contrast */
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -28,8 +28,8 @@ body::after {
   width: 280px;
   height: 280px;
   border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.2;
+  filter: blur(60px);
+  opacity: 0.4; /* Slightly higher opacity for light backgrounds */
   z-index: -1;
   animation: floatGlow 8s ease-in-out infinite alternate;
 }
@@ -37,13 +37,13 @@ body::after {
 body::before {
   top: -40px;
   left: -40px;
-  background: rgba(0, 242, 254, 0.4); /* Neon Cyan */
+  background: rgba(14, 165, 233, 0.3); /* Soft Electric Blue */
 }
 
 body::after {
   right: -40px;
   bottom: -40px;
-  background: rgba(79, 172, 254, 0.4); /* Electric Blue */
+  background: rgba(56, 189, 248, 0.3); /* Sky Blue Glow */
   animation-duration: 10s;
 }
 
@@ -64,11 +64,12 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(13, 27, 42, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 16px 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 nav ul {
@@ -80,7 +81,7 @@ nav ul {
 }
 
 nav a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(15, 23, 42, 0.7);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -88,7 +89,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00f2fe;
+  color: #0284c7; /* Professional Deep Cyan */
 }
 
 /* --- HOME / PROFILE HERO SECTION --- */
@@ -109,8 +110,8 @@ nav a:hover {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #00f2fe;
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+  border: 3px solid #0284c7;
+  box-shadow: 0 0 25px rgba(2, 132, 199, 0.2);
   transition: transform 0.3s ease;
 }
 
@@ -123,7 +124,7 @@ nav a:hover {
   margin: 10px 0 5px 0;
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(to right, #ffffff, #00f2fe);
+  background: linear-gradient(to right, #0f172a, #0284c7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -132,7 +133,7 @@ nav a:hover {
   font-size: 1.2rem;
   opacity: 0.85;
   margin-bottom: 25px;
-  color: #cbd5e1;
+  color: #475569;
 }
 
 /* --- SECTION HEADINGS --- */
@@ -141,11 +142,12 @@ h2 {
   margin-bottom: 25px;
   position: relative;
   font-weight: 700;
+  color: #0f172a;
 }
 
 h3.skills-category {
   font-size: 1.3rem;
-  color: #00f2fe;
+  color: #0284c7;
   margin-top: 25px;
   margin-bottom: 15px;
   font-weight: 600;
@@ -162,22 +164,22 @@ h3.skills-category {
 }
 
 .skills-list li {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.7);
   padding: 8px 18px;
   border-radius: 999px;
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  color: #cbd5e1;
+  color: #334155;
 }
 
 .skills-list li:hover {
   transform: translateY(-4px);
-  background: rgba(0, 242, 254, 0.15);
-  border-color: rgba(0, 242, 254, 0.4);
-  box-shadow: 0 8px 16px rgba(0, 242, 254, 0.2);
-  color: #ffffff;
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 8px 16px rgba(2, 132, 199, 0.1);
+  color: #0284c7;
 }
 
 /* --- GRIDS & CARDS STYLING --- */
@@ -191,23 +193,23 @@ h3.skills-category {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
   border-radius: 18px;
   padding: 24px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
   transition: all 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(0, 242, 254, 0.3);
-  box-shadow: 0 12px 24px rgba(0, 242, 254, 0.15);
+  background: #ffffff;
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: 0 12px 24px rgba(2, 132, 199, 0.12);
 }
 
 .card h3 {
-  color: #00f2fe;
+  color: #0284c7;
   margin-top: 0;
   margin-bottom: 12px;
   font-size: 1.25rem;
@@ -216,8 +218,8 @@ h3.skills-category {
 .card p {
   margin: 0;
   line-height: 1.7;
-  opacity: 0.85;
-  color: #cbd5e1;
+  opacity: 0.9;
+  color: #334155;
   font-size: 0.95rem;
 }
 
@@ -226,20 +228,21 @@ h3.skills-category {
   display: inline-block;
   cursor: pointer;
   font-weight: 600;
-  background: #00f2fe;
-  color: #0d1b2a;
+  background: #0284c7;
+  color: #ffffff;
   padding: 10px 22px;
   border-radius: 10px;
   text-decoration: none;
   border: none;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
 }
 
 .btn:hover {
   transform: translateY(-4px);
-  background: #ffffff;
-  color: #0d1b2a;
-  box-shadow: 0 8px 20px rgba(0, 242, 254, 0.3);
+  background: #0369a1;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
 }
 
 /* --- FORM STYLING --- */
@@ -252,32 +255,33 @@ form {
 form label {
   font-weight: 600;
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: #475569;
 }
 
 input, textarea {
   padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(15, 23, 42, 0.15);
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
+  background: #ffffff;
+  color: #0f172a;
   font-family: inherit;
   transition: all 0.3s ease;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: #00f2fe;
-  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.25);
-  background: rgba(255, 255, 255, 0.1);
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  background: #ffffff;
 }
 
 /* --- FOOTER --- */
 footer {
   text-align: center;
   padding: 50px 20px 40px 20px;
-  opacity: 0.6;
+  opacity: 0.7;
   font-size: 0.9rem;
+  color: #475569;
 }
 
 /* --- RESPONSIVE MEDIA QUERIES --- */
