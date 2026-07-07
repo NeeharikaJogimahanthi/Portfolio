@@ -1,25 +1,35 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio | J.Neeharika</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
+    /* --- GLOBAL CONFIGURATION & RESET --- */
     html {
       scroll-behavior: smooth;
     }
-    
+
+    body {
+      background: linear-gradient(135deg, #0f172a 0%, #0d1b2a 50%, #1b263b 100%);
+      color: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      overflow-x: hidden;
+    }
+
     section {
       scroll-margin-top: 100px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
     }
 
-    /* Ambient glowing circles adjusted for a networking/cyber theme */
+    /* --- AMBIENT GLOW BACKGROUND ANIMATIONS --- */
     body::before,
     body::after {
       content: "";
@@ -28,7 +38,7 @@
       height: 280px;
       border-radius: 50%;
       filter: blur(50px);
-      opacity: 0.25;
+      opacity: 0.2;
       z-index: -1;
       animation: floatGlow 8s ease-in-out infinite alternate;
     }
@@ -55,48 +65,138 @@
       }
     }
 
+    /* --- DEEP PREMIUM NAVIGATION BAR --- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(13, 27, 42, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 16px 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00f2fe;
+    }
+
+    /* --- HOME / PROFILE HERO SECTION --- */
     #home {
       text-align: center;
-      margin-top: 100px;
-      margin-bottom: 100px;
+      padding-top: 60px;
+      margin-bottom: 80px;
     }
-    #home h1 {
+
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00f2fe;
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+    }
+
+    .welcome-text {
       font-size: 3rem;
-      margin-bottom: 5px;
+      margin: 10px 0 5px 0;
       font-weight: 800;
+      letter-spacing: -0.5px;
       background: linear-gradient(to right, #ffffff, #00f2fe);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    #home p {
+
+    .subtitle-text {
       font-size: 1.2rem;
       opacity: 0.85;
       margin-bottom: 25px;
+      color: #cbd5e1;
     }
 
-    #skills ul {
+    /* --- SECTION HEADINGS --- */
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      position: relative;
+      font-weight: 700;
+    }
+
+    h3.skills-category {
+      font-size: 1.3rem;
+      color: #00f2fe;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    /* --- SKILLS CHIPS COMPONENT --- */
+    .skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       padding: 0;
       list-style: none;
+      margin: 0 0 30px 0;
     }
 
-    #skills li {
+    .skills-list li {
       background: rgba(255, 255, 255, 0.07);
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 999px;
       font-weight: 600;
       border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
+      color: #cbd5e1;
     }
 
-    #skills li:hover {
+    .skills-list li:hover {
       transform: translateY(-4px);
       background: rgba(0, 242, 254, 0.15);
       border-color: rgba(0, 242, 254, 0.4);
       box-shadow: 0 8px 16px rgba(0, 242, 254, 0.2);
+      color: #ffffff;
+    }
+
+    /* --- GRIDS & CARDS STYLING --- */
+    .cert-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     .card {
@@ -109,13 +209,28 @@
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.1);
       border-color: rgba(0, 242, 254, 0.3);
       box-shadow: 0 12px 24px rgba(0, 242, 254, 0.15);
     }
 
-    /* Clean Modern Buttons */
+    .card h3 {
+      color: #00f2fe;
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      margin: 0;
+      line-height: 1.7;
+      opacity: 0.85;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+
+    /* --- REUSABLE UTILITY BUTTONS --- */
     .btn {
       display: inline-block;
       cursor: pointer;
@@ -136,10 +251,17 @@
       box-shadow: 0 8px 20px rgba(0, 242, 254, 0.3);
     }
 
+    /* --- FORM STYLING --- */
     form {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
+    }
+
+    form label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #cbd5e1;
     }
 
     input, textarea {
@@ -159,108 +281,92 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
-    /* Deep Premium Nav Bar with Blur */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(13, 27, 42, 0.8);
-      backdrop-filter: blur(12px);
-      padding: 16px 20px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 28px;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav a {
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #00f2fe;
-    }
-
+    /* --- FOOTER --- */
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px 40px 20px;
       opacity: 0.6;
       font-size: 0.9rem;
     }
 
+    /* --- RESPONSIVE MEDIA QUERIES --- */
     @media (max-width: 768px) {
       nav ul {
-        gap: 18px;
+        gap: 16px;
       }
-      #home h1 {
-        font-size: 2.4rem;
+      nav a {
+        font-size: 0.9rem;
+      }
+      .welcome-text {
+        font-size: 2.3rem;
       }
     }
   </style>
 </head>
-<!-- Deep Cyber/Cloud Infrastructure Background Gradient -->
-<body style="background: linear-gradient(135deg, #0f172a 0%, #0d1b2a 50%, #1b263b 100%);
- font-family: 'Poppins', sans-serif; color: #ffffff; position: relative; overflow-x: hidden; margin: 0;">
+<body>
 
-  <!-- 1. Navigation -->
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li> 
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- 2. Hero -->
   <section id="home">
-    <h1>J.Neeharika</h1>
-    <p>III B.Tech IT-A | ANITS</p>
+    <div class="profile-container">
+      <img src="me.png" alt="Profile Photo" class="profile-photo">
+    </div>
+    <h1 class="welcome-text">Jogimahanthi Neeharika</h1>
+    <p class="subtitle-text">III B.Tech IT-A | ANITS</p>
     <a href="#contact" class="btn">Get In Touch</a>
   </section>
 
-  <!-- 3. About -->
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      Hello! I am Neeharika, a passionate student currently pursuing my <strong>Bachelor of Technology</strong>
-      in <strong>Information Technology</strong> at ANITS.
-      Ever since I wrote my first line of HTML, I have been captivated by the art of turning complex logical problems
-      into simple, beautiful, and intuitive user experiences.
-    </p>
-    <p>
-      My primary interest lies in Networking. Beyond my main coursework, I actively engage with
-      the tech community through open-source collaborations, coding hackathons, and exploring modern UI/UX architecture and startups Innovation.
-    </p>
+    <div class="card">
+      <p style="margin-bottom: 15px;">
+        Hello! I am Neeharika, a passionate student currently pursuing my <strong>Bachelor of Technology</strong>
+        in <strong>Information Technology</strong> at ANITS. 
+        Ever since I wrote my first line of HTML, I have been captivated by the art of turning complex logical problems
+        into simple, beautiful, and intuitive user experiences.
+      </p>
+      <p>
+        My primary interest lies in Networking. Beyond my main coursework, I actively engage with
+        the tech community through open-source collaborations, coding hackathons, and exploring modern UI/UX architecture and startups innovation.
+      </p>
+    </div>
   </section>
 
-  <!-- 4. Skills -->
   <section id="skills">
     <h2>My Skills</h2>
-    <ul>
+    
+    <h3 class="skills-category">Technical Skills</h3>
+    <ul class="skills-list">
+      <li>Programming & Development</li>
       <li>HTML5</li>
       <li>CSS3</li>
+      <li>Bootstrap</li>
       <li>Python</li>
-      <li>Network Security</li>
+      <li>Networking</li>
       <li>Cloud Computing</li>
-      <li>Git & GitHub</li>
-      <li>UI/UX Designing</li>
+    </ul>
+
+    <h3 class="skills-category">Soft Skills</h3>
+    <ul class="skills-list">
+      <li>Communication Skills</li>
+      <li>Teamwork & Collaboration</li>
+      <li>Problem-Solving Skills</li>
+      <li>Professional Skills</li>
+      <li>Leadership</li>
+      <li>Time Management</li>
+      <li>Analytical Thinking</li>
     </ul>
   </section>
 
-  <!-- 5. Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="card">
@@ -269,28 +375,76 @@
         An all-in-one application that helps users monitor their physical activities while planning healthy meals. 
         It tracks fitness progress, calorie intake, and nutrition to support a healthier lifestyle and achieve wellness goals.
       </p>
-      <a href="#" class="btn" style="margin-top: 12px;">View Project</a>
+      <a href="#" class="btn" style="margin-top: 16px;">View Project</a>
     </div>
   </section>
 
-  <!-- 6. Contact Form -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form>
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
-      
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-      
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="4"></textarea>
-      
-      <button type="submit" class="btn" style="align-self: flex-start; width: auto;">Send Message</button>
-    </form>
+  <section id="certifications">
+    <h2>Certifications & Achievements</h2>
+    <ul class="cert-grid">
+      <li class="card">
+        <h3>🏆 Samyukta Hackathon</h3>
+        <p>
+          Participated in the Samyukta Hackathon, collaborating with a team to develop
+          innovative solutions while strengthening problem-solving, teamwork, and technical skills.
+        </p>
+      </li>
+
+      <li class="card">
+        <h3>🎨 Design Marathon</h3>
+        <p>
+          Successfully completed a Design Marathon focused on creativity, UI/UX principles,
+          and user-centered design to build intuitive and engaging digital experiences.
+        </p>
+      </li>
+
+      <li class="card">
+        <h3>🌐 Infosys Springboard – Network Fundamentals</h3>
+        <p>
+          Successfully completed the Network Fundamentals course on Infosys Springboard,
+          gaining knowledge of networking concepts, IP addressing, routing, switching,
+          network protocols, and network security fundamentals.
+        </p>
+      </li>
+
+      <li class="card">
+        <h3>💡 Smart India Hackathon (SIH)</h3>
+        <p>
+          Participated in Smart India Hackathon, contributing to innovative solutions for
+          real-world challenges while improving teamwork, project development, and
+          problem-solving abilities.
+        </p>
+      </li>
+
+      <li class="card">
+        <h3>🚀 GEN E Summit – Startup Innovation Pitch</h3>
+        <p>
+          Participated in the GEN E Summit Startup Innovation Pitch, presenting innovative
+          startup ideas and technology-driven solutions while enhancing entrepreneurial
+          thinking, presentation skills, business strategy, and collaborative innovation.
+        </p>
+      </li>
+    </ul>
   </section>
 
-  <!-- 7. Footer -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="card">
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+        
+        <button type="submit" class="btn" style="align-self: flex-start; width: auto; margin-top: 10px;">Send Message</button>
+      </form>
+    </div>
+  </section>
+
   <footer>
     <p>&copy; 2026 J.Neeharika. All rights reserved.</p>
   </footer>
