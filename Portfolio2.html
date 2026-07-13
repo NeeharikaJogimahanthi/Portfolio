@@ -1,6 +1,3 @@
-Here is the clean, production-ready code with absolutely no conversational text or introductions left inside the artifact. You can copy this directly, save it as an .html file, and open it right up in your browser.
-
-HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +24,9 @@ HTML
 
     section {
       scroll-margin-top: 100px;
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
+      max-width: 100%;
+      margin: 60px 0;
+      padding: 0;
     }
 
     /* --- AMBIENT GLOW BACKGROUND ANIMATIONS --- */
@@ -155,6 +152,7 @@ HTML
       position: relative;
       font-weight: 700;
       color: #0f172a;
+      text-align: center;
     }
 
     h3.skills-category {
@@ -163,12 +161,14 @@ HTML
       margin-top: 25px;
       margin-bottom: 15px;
       font-weight: 600;
+      text-align: center;
     }
 
     /* --- SKILLS CHIPS COMPONENT --- */
     .skills-list {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
       padding: 0;
       list-style: none;
@@ -197,7 +197,7 @@ HTML
     /* --- GRIDS & CARDS STYLING --- */
     .cert-grid {
       list-style: none;
-      padding: 0;
+      padding: 0 20px;
       margin: 0;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -211,6 +211,7 @@ HTML
       padding: 24px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
       transition: all 0.3s ease;
+      margin: 0 20px;
     }
 
     .card:hover {
