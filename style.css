@@ -244,28 +244,29 @@ h3.skills-category {
   color: #ffffff;
   box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
 }
-
 /* --- FORM STYLING --- */
 form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;           
+  max-width: 450px;   
+  margin: 0 auto;      
 }
 
 form label {
-  font-weight: 300
-  ;
-  font-size: 0.9rem;
+  font-weight: 500;  
+  font-size: 0.85rem;  
   color: #475569;
 }
 
 input, textarea {
-  padding: 12px;
+  padding: 10px;    
   border: 1px solid rgba(15, 23, 42, 0.15);
-  border-radius: 10px;
+  border-radius: 8px;  
   background: #ffffff;
   color: #0f172a;
   font-family: inherit;
+  font-size: 0.95rem;  
   transition: all 0.3s ease;
 }
 
@@ -275,7 +276,6 @@ input:focus, textarea:focus {
   box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
   background: #ffffff;
 }
-
 /* --- FOOTER --- */
 footer {
   text-align: center;
