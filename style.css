@@ -253,7 +253,8 @@ form {
 }
 
 form label {
-  font-weight: 600;
+  font-weight: 300
+  ;
   font-size: 0.9rem;
   color: #475569;
 }
