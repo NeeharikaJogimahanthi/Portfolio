@@ -5,7 +5,8 @@ html {
 
 body {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
-  color: #0f172a; /* Dark slate text for high contrast */
+  color: #0f172a;
+  /* Dark slate text for high contrast */
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
@@ -29,7 +30,8 @@ body::after {
   height: 280px;
   border-radius: 50%;
   filter: blur(60px);
-  opacity: 0.4; /* Slightly higher opacity for light backgrounds */
+  opacity: 0.4;
+  /* Slightly higher opacity for light backgrounds */
   z-index: -1;
   animation: floatGlow 8s ease-in-out infinite alternate;
 }
@@ -37,13 +39,15 @@ body::after {
 body::before {
   top: -40px;
   left: -40px;
-  background: rgba(14, 165, 233, 0.3); /* Soft Electric Blue */
+  background: rgba(14, 165, 233, 0.3);
+  /* Soft Electric Blue */
 }
 
 body::after {
   right: -40px;
   bottom: -40px;
-  background: rgba(56, 189, 248, 0.3); /* Sky Blue Glow */
+  background: rgba(56, 189, 248, 0.3);
+  /* Sky Blue Glow */
   animation-duration: 10s;
 }
 
@@ -51,6 +55,7 @@ body::after {
   from {
     transform: translate(0, 0) scale(1);
   }
+
   to {
     transform: translate(30px, 20px) scale(1.1);
   }
@@ -89,7 +94,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #0284c7; /* Professional Deep Cyan */
+  color: #0284c7;
+  /* Professional Deep Cyan */
 }
 
 /* --- HOME / PROFILE HERO SECTION --- */
@@ -250,29 +256,33 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 100%;      
-  max-width: 500px;  
-  margin: 0 auto;    
+  width: 100%;
+  max-width: 400px;
+  /* Decreased the form width */
+  margin: 0 auto;
+  /* Center the form horizontally */
 }
 
 form label {
-  font-weight: 500;  
-  font-size: 0.85rem;  
+  font-weight: 500;
+  font-size: 0.85rem;
   color: #475569;
 }
 
-input, textarea {
-  padding: 10px;    
+input,
+textarea {
+  padding: 10px;
   border: 1px solid rgba(15, 23, 42, 0.15);
-  border-radius: 8px;  
+  border-radius: 8px;
   background: #ffffff;
   color: #0f172a;
   font-family: inherit;
-  font-size: 0.95rem;  
+  font-size: 0.95rem;
   transition: all 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: #0284c7;
   box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
@@ -293,9 +303,11 @@ footer {
   nav ul {
     gap: 16px;
   }
+
   nav a {
     font-size: 0.9rem;
   }
+
   .welcome-text {
     font-size: 2.3rem;
   }
