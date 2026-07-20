@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | J.Neeharika</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for the footer social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- STICKY SIDEBAR NAVIGATION BAR -->
+    <div class="sidebar">
+        <div class="sidebar-profile">
+            <div class="mini-photo-wrapper">
+                <img src="me.png" alt="Profile View" class="mini-photo">
+            </div>
+            <h4 class="mini-name">J. Neeharika</h4>
+            <p class="mini-tag">III B.Tech IT</p>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="dropdown-container active">
+                <button class="dropdown-trigger" onclick="toggleDropdown(this)">Navigation</button>
+                <div class="dropdown-content">
+                    <a href="#home">Home</a>
+                    <a href="#about">About Me</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
+                </div>
+            </div>
+
+            <div class="dropdown-container">
+                <button class="dropdown-trigger" onclick="toggleDropdown(this)">Contact</button>
+                <div class="dropdown-content">
+                    <a href="#contact">Message Me</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- MAIN PORTFOLIO FRAMEWORK -->
+    <div class="main-content">
+        <img class="header-logo" src="label.PNG" alt="logo Header">
+
+        <!-- HOME HERO SECTION -->
+        <section id="home">
+            <div class="hero-profile-container">
+                <div class="hero-photo-wrapper">
+                    <img src="me.png" alt="Jogimahanthi Neeharika Portrait" class="hero-photo">
+                </div>
+            </div>
+            <h1 class="welcome-text">Jogimahanthi Neeharika</h1>
+            <p class="subtitle-text">III B.Tech IT-A | ANITS student</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p class="mb-15">
+                    Hello! I am Neeharika, a passionate student currently pursuing my <strong>Bachelor of Technology</strong> in <strong>Information Technology</strong> at ANITS. Ever since I wrote my first line of HTML, I have been captivated by the art of turning complex logical problems into simple, beautiful, and intuitive user experiences.
+                </p>
+                <p>
+                    My primary interest lies in Networking. Beyond my main coursework, I actively engage with the tech community through open-source collaborations, coding hackathons, and exploring modern UI/UX architecture and startup innovations.
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS DISPLAYED USING METRIC CARDS AND PROGRESS BARS -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                
+                <!-- Card 1: Technical Capabilities -->
+                <div class="skill-card">
+                    <h3>Technical Skills</h3>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Programming & Python</span><span>85%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>HTML5 & CSS3</span><span>90%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="90%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Networking Arrays</span><span>80%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="80%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Cloud Platforms</span><span>75%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="75%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Professional Qualities -->
+                <div class="skill-card">
+                    <h3>Soft Skills</h3>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Communication & Pitching</span><span>90%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="90%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Teamwork & Collaboration</span><span>95%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="95%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Analytical Problem Solving</span><span>85%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="85%"></div></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label"><span>Leadership & Management</span><span>80%</span></div>
+                        <div class="bar-bg"><div class="bar-fill" data-percent="80%"></div></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-timeline">
+                <div class="card">
+                    <h3>B.Tech in Information Technology</h3>
+                    <p class="meta-txt">ANITS | 2023 - Present</p>
+                    <p>Currently in 3rd year pursuing advanced tracks in data management systems, software modeling architectures, and infrastructure networks.</p>
+                </div>
+                <div class="card">
+                    <h3>Intermediate / Higher Secondary</h3>
+                    <p class="meta-txt">MPC Stream | 2021 - 2023</p>
+                    <p>Focused engineering core preparation with intensive focus parameters around foundational Math, Physics, and Advanced Computing Logic structures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECT SECTION (THREE DISTINCT PROJECTS) -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                
+                <div class="card">
+                    <h3>Fitness Tracker & Diet Planner</h3>
+                    <p>An intelligent web space designed to optimize localized daily routine structures alongside customizable nutrient calculation matrices.</p>
+                    <a href="#" class="btn mt-16">View Repository</a>
+                </div>
+
+                <div class="card">
+                    <h3>Network Topology Mapping Simulator</h3>
+                    <p>A graphical algorithmic framework analyzing variable node configurations, optimizing localized routing loops, and data parcel drops.</p>
+                    <a href="#" class="btn mt-16">View Repository</a>
+                </div>
+
+                <div class="card">
+                    <h3>Smart Campus Structural Navigator</h3>
+                    <p>A responsive UI mapping design constructed during competitive hackathons to map cross-department paths fluidly.</p>
+                    <a href="#" class="btn mt-16">View Repository</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS SECTION -->
+        <section id="certifications">
+            <h2>Certifications & Achievements</h2>
+            <div class="project-grid">
+                <div class="card">
+                    <h3>🌐 Infosys Springboard</h3>
+                    <img src="inf.jpeg" alt="Network Fundamentals Certificate" class="cert-img">
+                    <p>Successfully completed the Network Fundamentals course, gaining deep knowledge of routing, switching, and protocols.</p>
+                </div>
+
+                <div class="card">
+                    <h3>💡 Smart India Hackathon</h3>
+                    <img src="sih.jpeg" alt="Smart India Hackathon Entry" class="cert-img">
+                    <p>Participated in SIH, contributing solutions for real-world systemic engineering issues within strict timeline rules.</p>
+                </div>
+
+                <div class="card">
+                    <h3>🚀 GEN E Summit</h3>
+                    <p>Presented a scalable proof of concept model inside the Startup Innovation Pitch category arena before ecosystem panels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION WITH COMPREHENSIVE INLINE VALIDATION ARCHITECTURE -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="card">
+                <form id="portfolioContactForm" novalidate>
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Full Name">
+                        <div class="error-message" id="nameError">Name cannot be empty.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com">
+                        <div class="error-message" id="emailError">Email must be valid.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Topic of conversation">
+                        <div class="error-message" id="subjectError">Subject should contain at least 5 characters.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Write your text here..."></textarea>
+                        <div class="error-message" id="messageError">Message should contain at least 20 characters.</div>
+                    </div>
+
+                    <button type="submit" class="btn mt-10">Submit Button</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOOTER WITH SOCIAL MEDIA LINKS -->
+        <footer>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn Profile Link"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank" aria-label="GitHub Profile Link"><i class="fa-brands fa-github"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter Profile Link"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="mailto:neeharika@example.com" aria-label="Email Address Direct Link"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2026 J.Neeharika. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- CLIENT VALIDATION AND GRAPHIC LOGIC HOOKS -->
+    <script>
+        // Left Navigation Menu Accordion Logic
+        function toggleDropdown(button) {
+            button.parentElement.classList.toggle('active');
+        }
+
+        // Skill Metric Dynamic Progress Rendering Setup
+        document.addEventListener("DOMContentLoaded", () => {
+            const fills = document.querySelectorAll('.bar-fill');
+            setTimeout(() => {
+                fills.forEach(bar => {
+                    bar.style.width = bar.getAttribute('data-percent');
+                });
+            }, 300);
+        });
+
+        // Form Validation Core Engine
+        document.getElementById('portfolioContactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            let isFormValid = true;
+
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            function triggerError(inputElement, errorId) {
+                inputElement.classList.add('is-invalid');
+                document.getElementById(errorId).style.display = 'block';
+                isFormValid = false;
+            }
+
+            // Simple real-time utility cleanup
+            function clearError(inputElement, errorId) {
+                inputElement.classList.remove('is-invalid');
+                document.getElementById(errorId).style.display = 'none';
+            }
+
+            // Validate Name
+            if (nameInput.value.trim() === '') {
+                triggerError(nameInput, 'nameError');
+            } else {
+                clearError(nameInput, 'nameError');
+            }
+
+            // Validate Email
+            if (!emailRegex.test(emailInput.value.trim())) {
+                triggerError(emailInput, 'emailError');
+            } else {
+                clearError(emailInput, 'emailError');
+            }
+
+            // Validate Subject (Min 5 chars)
+            if (subjectInput.value.trim().length < 5) {
+                triggerError(subjectInput, 'subjectError');
+            } else {
+                clearError(subjectInput, 'subjectError');
+            }
+
+            // Validate Message (Min 20 chars)
+            if (messageInput.value.trim().length < 20) {
+                triggerError(messageInput, 'messageError');
+            } else {
+                clearError(messageInput, 'messageError');
+            }
+
+            // Validation Pass Trigger
+            if (isFormValid) {
+                alert('Message Sent Successfully');
+                document.getElementById('portfolioContactForm').reset();
+            }
+        });
+    </script>
+
+</body>
+</html>
