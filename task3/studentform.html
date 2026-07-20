@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  
+  <!-- Font and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <style>
+    /* --- Modern Reset & Base Theme --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Decorative Background Accents */
+    body::before, body::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    body::before {
+      top: -50px;
+      left: -50px;
+      background: #0284c7;
+    }
+    body::after {
+      bottom: -50px;
+      right: -50px;
+      background: #38bdf8;
+    }
+
+    /* --- Form Container --- */
+    .form-container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 700px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .form-header p {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    /* --- Responsive Grid Layout --- */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 11fr);
+      gap: 20px;
+    }
+
+    .full-width {
+      grid-column: span 2;
+    }
+
+    /* --- Input Groups --- */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .form-control, .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 0.95rem;
+      color: #0f172a;
+      background-color: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.15);
+      border-radius: 10px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.1);
+    }
+
+    /* Gender Radio Customization */
+    .gender-group {
+      display: flex;
+      gap: 24px;
+      padding: 10px 0;
+    }
+
+    .gender-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .gender-option input[type="radio"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #0284c7;
+      cursor: pointer;
+    }
+
+    .gender-option span {
+      font-size: 0.95rem;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    /* --- Validation States --- */
+    .error-msg {
+      font-size: 0.8rem;
+      color: #dc2626;
+      font-weight: 500;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .is-invalid {
+      border-color: #dc2626 !important;
+    }
+    .is-invalid:focus {
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1) !important;
+    }
+
+    /* --- Submit Button --- */
+    .btn-submit {
+      width: 100%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: #0369a1;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
+    }
+
+    /* --- Success Banner Message --- */
+    .success-banner {
+      background-color: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .success-banner i {
+      font-size: 1.25rem;
+      color: #15803d;
+    }
+
+    /* --- Responsive Breaks --- */
+    @media (max-width: 640px) {
+      .form-container {
+        padding: 24px 16px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .full-width {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="form-header">
+      <h2>Student Registration</h2>
+      <p>Please provide precise information to create your academic record profile</p>
+    </div>
+
+    <!-- Success Message Banner -->
+    <div class="success-banner" id="successBanner">
+      <i class="fa-solid fa-circle-check"></i>
+      <span>Registration successful! Your profile validation passed.</span>
+    </div>
+
+    <form id="studentForm" novalidate>
+      <div class="form-grid">
+        
+        <!-- Full Name -->
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" class="form-control" placeholder="Enter your full name">
+          <div class="error-msg" id="nameError">Full Name should not be empty.</div>
+        </div>
+
+        <!-- Roll Number -->
+        <div class="input-group">
+          <label for="rollNumber">Roll Number</label>
+          <input type="text" id="rollNumber" class="form-control" placeholder="e.g. A241023">
+          <div class="error-msg" id="rollError">Roll Number must contain only letters and numbers.</div>
+        </div>
+
+        <!-- Email ID -->
+        <div class="input-group">
+          <label for="emailId">Email ID</label>
+          <input type="email" id="emailId" class="form-control" placeholder="name@example.com">
+          <div class="error-msg" id="emailError">Email must be in a valid format.</div>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="input-group">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="tel" id="mobileNumber" class="form-control" placeholder="10-digit number">
+          <div class="error-msg" id="mobileError">Mobile Number must contain exactly 10 digits.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" placeholder="At least 8 characters">
+          <div class="error-msg" id="passwordError">Password must be at least 8 characters long.</div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password">
+          <div class="error-msg" id="confirmPasswordError">Password and Confirm Password must match.</div>
+        </div>
+
+        <!-- Department -->
+        <div class="input-group">
+          <label for="department">Department</label>
+          <select id="department" class="form-select">
+            <option value="" selected disabled>Select Department</option>
+            <option value="IT">Information Technology</option>
+            <option value="CSE">Computer Science & Engineering</option>
+            <option value="ECE">Electronics & Communication</option>
+            <option value="MECH">Mechanical Engineering</option>
+          </select>
+          <div class="error-msg" id="deptError">Department must be selected.</div>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="input-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" class="form-control">
+          <div class="error-msg" id="dobError">Date of Birth should not be empty.</div>
+        </div>
+
+        <!-- Gender Selection -->
+        <div class="input-group full-width">
+          <label>Gender</label>
+          <div class="gender-group">
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Male">
+              <span>Male</span>
+            </label>
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Female">
+              <span>Female</span>
+            </label>
+            <label class="gender-option">
+              <input type="radio" name="gender" value="Other">
+              <span>Other</span>
+            </label>
+          </div>
+          <div class="error-msg" id="genderError">Gender must be selected.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="full-width">
+          <button type="submit" class="btn-submit">Submit Registration</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  <!-- --- JAVASCRIPT VALIDATION ENGINE --- -->
+  <script>
+    document.getElementById('studentForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Stop default form submittal architecture
+      
+      let isFormValid = true;
+
+      // Extract Form Inputs
+      const fullName = document.getElementById('fullName');
+      const rollNumber = document.getElementById('rollNumber');
+      const emailId = document.getElementById('emailId');
+      const mobileNumber = document.getElementById('mobileNumber');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirmPassword');
+      const department = document.getElementById('department');
+      const dob = document.getElementById('dob');
+      const genderRadios = document.getElementsByName('gender');
+
+      // Validation RegEx Formulas
+      const alphanumericRegex = /^[a-zA-Z0-9]+$/;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^\d{10}$/;
+
+      // UI Utility helpers to cleanly trigger field updates
+      function setInvalidState(inputElement, errorId) {
+        inputElement.classList.add('is-invalid');
+        document.getElementById(errorId).style.display = 'block';
+        isFormValid = false;
+      }
+
+      function setValidState(inputElement, errorId) {
+        inputElement.classList.remove('is-invalid');
+        document.getElementById(errorId).style.display = 'none';
+      }
+
+      // 1. Full Name Verification
+      if (fullName.value.trim() === '') {
+        setInvalidState(fullName, 'nameError');
+      } else {
+        setValidState(fullName, 'nameError');
+      }
+
+      // 2. Roll Number Verification
+      if (!alphanumericRegex.test(rollNumber.value.trim())) {
+        setInvalidState(rollNumber, 'rollError');
+      } else {
+        setValidState(rollNumber, 'rollError');
+      }
+
+      // 3. Email Formatting Verification
+      if (!emailRegex.test(emailId.value.trim())) {
+        setInvalidState(emailId, 'emailError');
+      } else {
+        setValidState(emailId, 'emailError');
+      }
+
+      // 4. Mobile Number Digit Metric check
+      if (!mobileRegex.test(mobileNumber.value.trim())) {
+        setInvalidState(mobileNumber, 'mobileError');
+      } else {
+        setValidState(mobileNumber, 'mobileError');
+      }
+
+      // 5. Password Length check
+      if (password.value.length < 8) {
+        setInvalidState(password, 'passwordError');
+      } else {
+        setValidState(password, 'passwordError');
+      }
+
+      // 6. Confirm Password Match check
+      if (confirmPassword.value === '' || password.value !== confirmPassword.value) {
+        setInvalidState(confirmPassword, 'confirmPasswordError');
+      } else {
+        setValidState(confirmPassword, 'confirmPasswordError');
+      }
+
+      // 7. Department Dropdown Drop selection verify
+      if (department.value === '') {
+        setInvalidState(department, 'deptError');
+      } else {
+        setValidState(department, 'deptError');
+      }
+
+      // 8. Date of Birth Selection verify
+      if (dob.value === '') {
+        setInvalidState(dob, 'dobError');
+      } else {
+        setValidState(dob, 'dobError');
+      }
+
+      // 9. Gender Radio Array Selection validation
+      let genderSelected = false;
+      for (const radio of genderRadios) {
+        if (radio.checked) {
+          genderSelected = true;
+          break;
+        }
+      }
+      
+      if (!genderSelected) {
+        document.getElementById('genderError').style.display = 'block';
+        isFormValid = false;
+      } else {
+        document.getElementById('genderError').style.display = 'none';
+      }
+
+      // Final Success Flag Evaluation Loop
+      if (isFormValid) {
+        const successBanner = document.getElementById('successBanner');
+        successBanner.style.display = 'flex';
+        
+        // Reset registration fields cleanly
+        document.getElementById('studentForm').reset();
+        
+        // Smoothly scroll container upwards back to success text
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
